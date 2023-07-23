@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Date;
 
 public class Server {
     public static final int PORT = 10_000;
@@ -32,7 +33,7 @@ public class Server {
                             break;
                         }
                         responseStream.println("Hello from server. Your message: " +
-                                messageFromClient);
+                                messageFromClient + "-#-Time server:" + new Date().getTime());
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

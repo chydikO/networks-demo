@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Client {
@@ -20,7 +21,7 @@ public class Client {
             while (true) {
                 System.out.println("Enter any message (or type 'exit' to exit): ");
                 String request = scanner.nextLine();
-                printStream.println(request);
+                printStream.println(request  + " $$$ Time client:" + new Date().getTime() + " $$$");
                 String response = reader.readLine();
                 System.out.println("Server response: " + response);
 

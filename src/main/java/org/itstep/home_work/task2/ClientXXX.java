@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Client {
@@ -37,7 +38,7 @@ public class Client {
             // Отправляем сообщения на сервер
             while (true) {
                 String message = scanner.nextLine();
-                printStream.println(message);
+                printStream.println("***-Client " + message  + " *** Time client:" + new Date().getTime() + " ***");
             }
 
         } catch (IOException e) {

@@ -7,13 +7,14 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
     public static final int PORT = 10_000;
-    private static List<PrintStream> clientOutputStreams = new ArrayList<>();
+    private static final List<PrintStream> clientOutputStreams = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -49,7 +50,7 @@ public class Server {
                 }
                 System.out.println("Message from " + clientSocket.getRemoteSocketAddress() + ": " + messageFromClient);
 
-                sendToAllClients(messageFromClient);
+                sendToAllClients(messageFromClient + " $$$ Time SERVER:" + new Date().getTime() + " $$$");
             }
 
             clientSocket.close();
